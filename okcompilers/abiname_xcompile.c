@@ -23,7 +23,11 @@
     struct isItV9 { int ABI_IS_sparcv9__ : (sizeof(long) == 4); };
     struct isItV8 { int ABI_IS_sparcv8__ : (sizeof(long) != 4); };
 #elif defined(__ARM_EABI__)
-    #error ABI_IS_armeabi__
+    #if defined(__ARM_NEON__)
+        #error ABI_IS_armeabi_neon__
+    #else
+        #error ABI_IS_armeabi__
+    #endif
 #elif defined(__arm__)
     #error ABI_IS_arm__
 #elif defined(__mips__) || defined(__mips) || defined(__MIPS__)
