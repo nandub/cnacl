@@ -1,3 +1,4 @@
+gcc -O2 -fomit-frame-pointer -marm
 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
 gcc -m64 -O -fomit-frame-pointer
 gcc -m64 -fomit-frame-pointer
