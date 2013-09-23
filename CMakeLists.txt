@@ -5,6 +5,8 @@ project(nacl C)
 cmake_minimum_required(VERSION 2.4)
 
 # Generic hook to allow arbitrary cmake code to be run for preconfiguration.
+# to pass assert that ARM NEON is available:
+# set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} -mfpu=neon")
 if(CNACL_CONFIG_SCRIPT)
     include(${CNACL_CONFIG_SCRIPT})
 endif()
@@ -256,9 +258,8 @@ endfunction()
 
 
 include("${CMAKE_SOURCE_DIR}/cmake/AbiName.cmake")
-AbiName_get(abi)
+AbiName_get(abi "${CMAKE_REQUIRED_FLAGS}")
 message("Detected ABI as ${abi}")
-
 set(planPath "${CMAKE_SOURCE_DIR}/cmake/plans/${abi}_plan.cmake")
 
 ## On apple systems, the assembler is different and it doesn't accept
