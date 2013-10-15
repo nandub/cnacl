@@ -11,7 +11,7 @@ function(makePlan abi outputLocation)
     set(impls)
     set(types)
 
-    file(GLOB files build/*/include/${abi}/*.h)
+    file(GLOB files build/*/include/*/*.h)
     foreach(header ${files})
         file(STRINGS ${header} content)
         foreach(line ${content})
