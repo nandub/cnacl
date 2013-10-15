@@ -1,5 +1,5 @@
 set(PLAN_IMPLEMENTATIONS
-"crypto_sign/ed25519/amd64-64-24k"
+"crypto_sign/ed25519/amd64_64_24k"
 "crypto_verify/32/ref"
 "crypto_stream/xsalsa20/ref"
 "crypto_core/salsa20/ref"
